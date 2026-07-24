@@ -135,7 +135,11 @@ class Main {
       backgroundColor: 'rgba(0, 0, 0, 0)',
       show: false,
     }
-    if(isWindows) {
+    if (isMac) {
+      options.vibrancy = 'under-window'
+      options.visualEffectState = 'active'
+    }
+    if (isWindows) {
       options.transparent = false
     }
     this.win = new BrowserWindow(options)

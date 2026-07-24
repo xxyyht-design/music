@@ -150,6 +150,7 @@ const MenuBar = () => {
       className={cx(
         'app-region-drag relative flex h-full w-full flex-col justify-center',
         'lg:fixed lg:left-0 lg:top-0 lg:bottom-0',
+        'wanqing-glass-card !border-y-0 !border-l-0 !rounded-none',
         css`
           ${bp.lg} {
             width: 104px;

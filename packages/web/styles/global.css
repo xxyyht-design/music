@@ -89,6 +89,60 @@
     /* 移除 scroll-behavior: smooth，避免滚动时的动画感 */
     /* 让浏览器使用原生滚动，更流畅 */
   }
+
+  /* ---------------------------------------------------------------- */
+  /* 晚清顶级玻璃 (Wanqing Glass) - 二创注入                            */
+  /* 融合 Mineradio 核心视觉配方：高饱和度、物理厚度、内嵌高光          */
+  /* ---------------------------------------------------------------- */
+  .wanqing-glass {
+    position: relative;
+    background: linear-gradient(
+      112deg, 
+      rgba(255, 255, 255, 0.08) 0%, 
+      rgba(255, 255, 255, 0.03) 100%
+    );
+    backdrop-filter: blur(25px) saturate(190%) brightness(1.1);
+    -webkit-backdrop-filter: blur(25px) saturate(190%) brightness(1.1);
+    border: 0.5px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 
+      inset 0 1px 0 rgba(255, 255, 255, 0.15),
+      inset 0 -1px 1px rgba(0, 0, 0, 0.1);
+  }
+
+  /* 悬浮玻璃卡片 (Glass Card) - 用于播放器、侧边栏等独立组件 */
+  .wanqing-glass-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px) saturate(180%) brightness(1.1);
+    -webkit-backdrop-filter: blur(20px) saturate(180%) brightness(1.1);
+    border: 0.5px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  .dark .wanqing-glass-card {
+    background: rgba(20, 20, 20, 0.35);
+    backdrop-filter: blur(20px) saturate(180%) brightness(0.9);
+    -webkit-backdrop-filter: blur(20px) saturate(180%) brightness(0.9);
+    border: 0.5px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .dark .wanqing-glass {
+    background: linear-gradient(
+      112deg, 
+      rgba(0, 0, 0, 0.25) 0%, 
+      rgba(0, 0, 0, 0.15) 100%
+    );
+    backdrop-filter: blur(25px) saturate(190%) brightness(0.85);
+    -webkit-backdrop-filter: blur(25px) saturate(190%) brightness(0.85);
+    border: 0.5px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      inset 0 -1px 1px rgba(0, 0, 0, 0.3);
+  }
 }
 
 @keyframes pulsate-fwdj-big {

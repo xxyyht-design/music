@@ -100,7 +100,7 @@ const Layout = () => {
             id='layout-foreground'
             className={cx(
               'rounded-12',
-              !enableBreathingEffect && 'backdrop-blur-md',
+              'wanqing-glass',
               'relative grid h-screen select-none overflow-hidden',
               'text-black transition-colors duration-400 dark:text-white'
             )}

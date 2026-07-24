@@ -43,10 +43,11 @@ const Controls = () => {
     <MotionConfig transition={{ ease, duration: 0.5 }}>
       <motion.div
         className={cx(
-          'fixed bottom-0 right-0 flex',
+          'flex',
           mini ? 'flex-col items-center justify-between' : 'items-center justify-between',
           mini
             ? css`
+                position: fixed;
                 right: 24px;
                 bottom: 18px;
                 width: 44px;
@@ -55,9 +56,11 @@ const Controls = () => {
               `
             : css`
                 justify-content: space-around;
-                bottom: 56px;
-                right: 56px;
-                width: 254px;
+                position: relative;
+                bottom: 0;
+                right: 0;
+                width: 100%;
+                margin-top: 16px;
               `
         )}
       >

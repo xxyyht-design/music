@@ -14,9 +14,11 @@ const Player = () => {
       <div
         className={cx(
           'fixed right-6 bottom-6 flex w-full flex-col justify-between overflow-hidden',
+          'wanqing-glass-card rounded-24 p-4',
           'sm: hidden md:hidden lg:block',
           css`
             width: 318px;
+            height: auto;
           `
         )}
       >
