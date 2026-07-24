@@ -109,8 +109,7 @@ const SearchSuggestions = ({
               },
             }}
             className={cx(
-              'border-dark/10 absolute mt-2 origin-top rounded-24 border p-2 backdrop-blur-xxl dark:border-white/10',
-              'bg-white/95 dark:bg-black/95',
+              'border-dark/10 absolute mt-2 origin-top rounded-24 border p-2 liquid-glass dark:border-white/10',
               css`
                 width: 286px;
               `
@@ -150,9 +149,9 @@ const SearchBox = () => {
     <div
       className={cx(
         'relative',
-        'bg-black/10 hover:bg-black/20 dark:bg-white/10 dark:hover:bg-white/20',
-        'transition-all duration-100 ease-in',
-        'rounded-full'
+        'liquid-glass',
+        'transition-all duration-300 ease-in-out',
+        'rounded-24'
       )}
     >
       {/* Input */}

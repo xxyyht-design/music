@@ -41,14 +41,12 @@ const Background = () => {
     return (
       <div
         className={cx(
-          'absolute inset-0 h-full w-full',
+          'absolute inset-0 h-full w-full liquid-glass',
           window.env?.isElectron && !fullscreen && 'rounded-tr-12 rounded-tl-12'
         )}
         style={{
-          backdropFilter: 'blur(12px) saturate(1.2)',
-          WebkitBackdropFilter: 'blur(12px) saturate(1.2)',
-          maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
-          WebkitMaskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
+          maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)',
         }}
       />
     )
