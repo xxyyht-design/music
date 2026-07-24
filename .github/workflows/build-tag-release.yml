@@ -61,7 +61,7 @@ jobs:
           cache: 'pnpm'
 
       - name: Install global dependencies
-        run: npm i prisma fastify-cli turbo tsx electron-builder@23.6.0 -g
+        run: npm i -g turbo tsx electron-builder@23.6.0
 
       - name: Install dependencies
         run: pnpm install
