@@ -104,7 +104,7 @@ const Controls = () => {
                   player.prevTrack()
                 }}
                 disabled={!track}
-                className='rounded-full bg-black/10 p-2.5 transition-colors duration-400 dark:bg-white/10 hover:dark:bg-white/20'
+                className='rounded-full p-2.5 transition-colors duration-400 liquid-glass hover:dark:bg-white/20'
               >
                 <Icon name='previous' className='h-6 w-6' />
               </motion.button>
@@ -115,7 +115,7 @@ const Controls = () => {
                   track && player.playOrPause()
                   window.ipcRenderer?.send(IpcChannels.Pause)
                 }}
-                className='rounded-full bg-black/10 p-2.5 transition-colors duration-400 dark:bg-white/10 hover:dark:bg-white/20'
+                className='rounded-full p-2.5 transition-colors duration-400 liquid-glass hover:dark:bg-white/20'
               >
                 <Icon
                   name={
@@ -132,7 +132,7 @@ const Controls = () => {
                   player.nextTrack()
                 }}
                 disabled={!track}
-                className='rounded-full bg-black/10 p-2.5 transition-colors duration-400 dark:bg-white/10 hover:dark:bg-white/20'
+                className='rounded-full p-2.5 transition-colors duration-400 liquid-glass hover:dark:bg-white/20'
               >
                 <Icon name='next' className='h-6 w-6 ' />
               </motion.button>

@@ -99,26 +99,26 @@
   /* 极致透明材质，专为搜索框、播放器等“框框”打造                      */
   /* ---------------------------------------------------------------- */
   .liquid-glass {
-    background: rgba(255, 255, 255, 0.08) !important;
-    backdrop-filter: blur(45px) saturate(220%) brightness(1.15) !important;
-    -webkit-backdrop-filter: blur(45px) saturate(220%) brightness(1.15) !important;
-    border: 1.2px solid rgba(255, 255, 255, 0.28) !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    backdrop-filter: blur(50px) saturate(240%) brightness(1.2) !important;
+    -webkit-backdrop-filter: blur(50px) saturate(240%) brightness(1.2) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.3) !important;
     box-shadow: 
-      0 12px 40px -4px rgba(0, 0, 0, 0.15),
-      inset 0 1px 1px rgba(255, 255, 255, 0.35),
-      inset 0 0 20px rgba(255, 255, 255, 0.05) !important;
+      0 8px 32px -4px rgba(0, 0, 0, 0.1),
+      inset 0 1px 1px rgba(255, 255, 255, 0.4),
+      inset 0 0 15px rgba(255, 255, 255, 0.05) !important;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
   }
 
   .dark .liquid-glass {
-    background: rgba(0, 0, 0, 0.22) !important;
-    backdrop-filter: blur(45px) saturate(240%) brightness(0.9) !important;
-    -webkit-backdrop-filter: blur(45px) saturate(240%) brightness(0.9) !important;
-    border: 1.2px solid rgba(255, 255, 255, 0.12) !important;
+    background: rgba(0, 0, 0, 0.15) !important;
+    backdrop-filter: blur(50px) saturate(260%) brightness(0.95) !important;
+    -webkit-backdrop-filter: blur(50px) saturate(260%) brightness(0.95) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.12) !important;
     box-shadow: 
-      0 12px 40px -4px rgba(0, 0, 0, 0.4),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1),
-      inset 0 0 20px rgba(0, 0, 0, 0.1) !important;
+      0 8px 32px -4px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08),
+      inset 0 0 15px rgba(0, 0, 0, 0.1) !important;
   }
 
   /* 这种效果更适合作为背景容器 */

@@ -120,7 +120,7 @@ const Login = () => {
                 <motion.div
                   animate={animateCard}
                   className={cx(
-                    'relative h-fit rounded-48 bg-white/10 p-9',
+                    'relative h-fit rounded-48 p-9 liquid-glass',
                     css`
                       width: 392px;
                     `
@@ -141,7 +141,7 @@ const Login = () => {
                   layout='position'
                   transition={{ ease }}
                   onClick={() => (uiStates.showLoginPanel = false)}
-                  className='mt-10 flex h-14 w-14 items-center justify-center rounded-full bg-white/10 text-white/50 transition-colors duration-300 hover:bg-white/20 hover:text-white/70'
+                  className='mt-10 flex h-14 w-14 items-center justify-center rounded-full text-white/50 transition-colors duration-300 liquid-glass hover:text-white/70'
                 >
                   <Icon name='x' className='h-6 w-6' />
                 </motion.div>

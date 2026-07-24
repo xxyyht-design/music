@@ -63,7 +63,7 @@ const Layout = () => {
                   background-position: center;
                   transform: translate3d(0, 0, 0);
                 `,
-              theme === 'dark' ? 'bg-black/10' : 'bg-white/10'
+              theme === 'dark' ? 'bg-black/5' : 'bg-white/5'
             )}
             style={{
               backgroundImage: showBackgroundImage ? `url(${activeBg})` : '',
@@ -102,6 +102,7 @@ const Layout = () => {
             id='layout-foreground'
             className={cx(
               'rounded-12',
+              'liquid-glass',
               'relative grid h-screen select-none overflow-hidden',
               'text-black transition-colors duration-400 dark:text-white'
             )}

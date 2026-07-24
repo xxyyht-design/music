@@ -8,7 +8,7 @@ const UserCard = () => {
   const { t } = useTranslation()
 
   return (
-    <div className='flex items-center justify-between overflow-hidden rounded-3xl bg-white/5 p-6'>
+    <div className='flex items-center justify-between overflow-hidden rounded-3xl p-6 liquid-glass'>
       <div className='flex items-center'>
         <img className='h-16 w-16 rounded-full' src={toHttps(user?.profile?.avatarUrl)} />
         <div className='ml-4'>
