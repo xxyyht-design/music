@@ -25,6 +25,8 @@ const Layout = () => {
   const { fullscreen } = useSnapshot(uiStates)
   const showPlayer = !!playerSnapshot.track
   const { showBackgroundImage, theme, enableBreathingEffect } = useSnapshot(settings)
+  const defaultBg = 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop'
+  const activeBg = player.track?.al?.picUrl || defaultBg
 
   return (
     <div>
@@ -61,10 +63,10 @@ const Layout = () => {
                   background-position: center;
                   transform: translate3d(0, 0, 0);
                 `,
-              theme === 'dark' ? 'bg-black/70' : 'bg-white/90'
+              theme === 'dark' ? 'bg-black/10' : 'bg-white/10'
             )}
             style={{
-              backgroundImage: showBackgroundImage ? `url(${player.track?.al?.picUrl})` : '',
+              backgroundImage: showBackgroundImage ? `url(${activeBg})` : '',
             }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -100,7 +102,6 @@ const Layout = () => {
             id='layout-foreground'
             className={cx(
               'rounded-12',
-              'wanqing-glass',
               'relative grid h-screen select-none overflow-hidden',
               'text-black transition-colors duration-400 dark:text-white'
             )}

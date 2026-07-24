@@ -96,52 +96,43 @@
   /* ---------------------------------------------------------------- */
   .wanqing-glass {
     position: relative;
-    background: linear-gradient(
-      112deg, 
-      rgba(255, 255, 255, 0.08) 0%, 
-      rgba(255, 255, 255, 0.03) 100%
-    );
-    backdrop-filter: blur(25px) saturate(190%) brightness(1.1);
-    -webkit-backdrop-filter: blur(25px) saturate(190%) brightness(1.1);
-    border: 0.5px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.05) !important;
+    backdrop-filter: blur(25px) saturate(220%) brightness(1.2) !important;
+    -webkit-backdrop-filter: blur(25px) saturate(220%) brightness(1.2) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
     box-shadow: 
-      inset 0 1px 0 rgba(255, 255, 255, 0.15),
-      inset 0 -1px 1px rgba(0, 0, 0, 0.1);
+      inset 0 1px 0 rgba(255, 255, 255, 0.3),
+      0 12px 32px -4px rgba(0, 0, 0, 0.2);
   }
 
-  /* 悬浮玻璃卡片 (Glass Card) - 用于播放器、侧边栏等独立组件 */
   .wanqing-glass-card {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(20px) saturate(180%) brightness(1.1);
-    -webkit-backdrop-filter: blur(20px) saturate(180%) brightness(1.1);
-    border: 0.5px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(30px) saturate(240%) brightness(1.25) !important;
+    -webkit-backdrop-filter: blur(30px) saturate(240%) brightness(1.25) !important;
+    border: 1px solid rgba(255, 255, 255, 0.35) !important;
     box-shadow: 
-      0 8px 32px rgba(0, 0, 0, 0.25),
-      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      0 20px 60px rgba(0, 0, 0, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4);
   }
 
   .dark .wanqing-glass-card {
-    background: rgba(20, 20, 20, 0.35);
-    backdrop-filter: blur(20px) saturate(180%) brightness(0.9);
-    -webkit-backdrop-filter: blur(20px) saturate(180%) brightness(0.9);
-    border: 0.5px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.3) !important;
+    backdrop-filter: blur(30px) saturate(260%) brightness(0.85) !important;
+    -webkit-backdrop-filter: blur(30px) saturate(260%) brightness(0.85) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
     box-shadow: 
-      0 8px 32px rgba(0, 0, 0, 0.4),
+      0 20px 60px rgba(0, 0, 0, 0.45),
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
 
   .dark .wanqing-glass {
-    background: linear-gradient(
-      112deg, 
-      rgba(0, 0, 0, 0.25) 0%, 
-      rgba(0, 0, 0, 0.15) 100%
-    );
-    backdrop-filter: blur(25px) saturate(190%) brightness(0.85);
-    -webkit-backdrop-filter: blur(25px) saturate(190%) brightness(0.85);
-    border: 0.5px solid rgba(255, 255, 255, 0.08);
+    background: rgba(0, 0, 0, 0.25) !important;
+    backdrop-filter: blur(25px) saturate(230%) brightness(0.8) !important;
+    -webkit-backdrop-filter: blur(25px) saturate(230%) brightness(0.8) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
     box-shadow: 
-      inset 0 1px 0 rgba(255, 255, 255, 0.1),
-      inset 0 -1px 1px rgba(0, 0, 0, 0.3);
+      inset 0 1px 0 rgba(255, 255, 255, 0.08),
+      0 12px 32px -4px rgba(0, 0, 0, 0.3);
   }
 }
 

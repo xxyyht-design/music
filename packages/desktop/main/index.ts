@@ -140,9 +140,15 @@ class Main {
       options.visualEffectState = 'active'
     }
     if (isWindows) {
-      options.transparent = false
+      options.transparent = true
+      options.backgroundColor = '#00000000'
     }
     this.win = new BrowserWindow(options)
+    
+    if (isWindows) {
+      this.win.setBackgroundMaterial('acrylic')
+    }
+    
     mainWindowStateKeeper.manage(this.win)
 
     // Disable macOS rubber-band overscroll bounce on the entire window.
