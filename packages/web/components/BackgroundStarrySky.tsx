@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { useSnapshot } from 'valtio';
-import { settings } from '../states/settings';
+import settings from '../states/settings';
 
 const BackgroundStarrySky: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
