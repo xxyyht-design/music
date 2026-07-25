@@ -7,6 +7,7 @@ const BackgroundStarrySky: React.FC = () => {
   const snap = useSnapshot(settings);
 
   useEffect(() => {
+    if (!snap.enableStarrySky) return;
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -35,11 +36,9 @@ const BackgroundStarrySky: React.FC = () => {
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
-      // 这里的背景色深浅受 DIY 亮度影响
-      const bgBrightness = (snap.glassBrightness || 1) * 0.05;
-      ctx.fillStyle = `rgba(0, 0, 0, ${1 - bgBrightness})`;
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
+      // 不再在 Canvas 内部画黑色背景，让 CSS 的 linear-gradient 作为底色
+      // 这样亮度调节可以交给前景的 mask 层去处理
+      
       stars.forEach(star => {
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
@@ -69,7 +68,9 @@ const BackgroundStarrySky: React.FC = () => {
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener('resize', handleResize);
     };
-  }, [snap.glassBrightness]);
+  }, [snap.glassBrightness, snap.enableStarrySky]);
+
+  if (!snap.enableStarrySky) return null;
 
   return (
     <canvas
@@ -80,7 +81,7 @@ const BackgroundStarrySky: React.FC = () => {
         left: 0,
         width: '100vw',
         height: '100vh',
-        zIndex: -1,
+        zIndex: -2,
         pointerEvents: 'none',
         // 这里的背景稍微带点渐变深蓝色
         background: 'linear-gradient(112deg, #020606 0%, #050607 42%, #000 100%)',

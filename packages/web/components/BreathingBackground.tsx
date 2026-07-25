@@ -56,6 +56,7 @@ const BreathingBackground = memo(() => {
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             transition: 'background-image 2s ease-in-out',
+            opacity: 0.5, /* 让星空背景能透出来 */
           }}
         />
       )}

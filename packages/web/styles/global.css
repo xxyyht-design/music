@@ -99,35 +99,32 @@
   /* 极致透明材质，专为搜索框、播放器等“框框”打造                      */
   /* ---------------------------------------------------------------- */
   .liquid-glass {
-    background: rgba(255, 255, 255, 0.02) !important;
-    backdrop-filter: blur(var(--glass-blur, 50px)) saturate(var(--glass-saturate, 240%)) brightness(var(--glass-brightness, 120%)) !important;
-    -webkit-backdrop-filter: blur(var(--glass-blur, 50px)) saturate(var(--glass-saturate, 240%)) brightness(var(--glass-brightness, 120%)) !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    background: rgba(255, 255, 255, 0.01) !important;
+    backdrop-filter: blur(var(--glass-blur, 40px)) saturate(var(--glass-saturate, 200%)) brightness(var(--glass-brightness, 110%)) !important;
+    -webkit-backdrop-filter: blur(var(--glass-blur, 40px)) saturate(var(--glass-saturate, 200%)) brightness(var(--glass-brightness, 110%)) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
     box-shadow: 
-      0 8px 32px -4px rgba(0, 0, 0, 0.1),
-      inset 0 1px 1px rgba(255, 255, 255, 0.1),
-      inset 0 0 15px rgba(255, 255, 255, 0.05) !important;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+      0 8px 32px 0 rgba(0, 0, 0, 0.15),
+      inset 0 1px 1px rgba(255, 255, 255, 0.05) !important;
   }
 
   .dark .liquid-glass {
-    background: rgba(0, 0, 0, 0.08) !important;
-    backdrop-filter: blur(var(--glass-blur, 50px)) saturate(var(--glass-saturate, 260%)) brightness(var(--glass-brightness, 95%)) !important;
-    -webkit-backdrop-filter: blur(var(--glass-blur, 50px)) saturate(var(--glass-saturate, 260%)) brightness(var(--glass-brightness, 95%)) !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    background: rgba(0, 0, 0, 0.15) !important;
+    backdrop-filter: blur(var(--glass-blur, 40px)) saturate(var(--glass-saturate, 220%)) brightness(var(--glass-brightness, 90%)) !important;
+    -webkit-backdrop-filter: blur(var(--glass-blur, 40px)) saturate(var(--glass-saturate, 220%)) brightness(var(--glass-brightness, 90%)) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
     box-shadow: 
-      0 8px 32px -4px rgba(0, 0, 0, 0.3),
-      inset 0 1px 0 rgba(255, 255, 255, 0.05),
-      inset 0 0 15px rgba(0, 0, 0, 0.1) !important;
+      0 8px 32px 0 rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
   }
 
   /* 强行穿透：让所有深色/灰色背景让位给毛玻璃 */
-  #layout, .bg-white, .bg-gray-50, .bg-gray-100, .bg-gray-900, .bg-black, .bg-neutral-900 {
+  #layout, .bg-white, .bg-gray-50, .bg-gray-100, .bg-gray-900, .bg-black, .bg-neutral-900, .bg-neutral-800, .bg-zinc-900 {
     background-color: transparent !important;
   }
 
   /* 核心组件透明化 */
-  nav, aside, footer, header, #player, .menubar, .topbar {
+  nav, aside, footer, header, #player, .menubar, .topbar, #main, .main-container {
     background: transparent !important;
   }
 

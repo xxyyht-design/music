@@ -39,6 +39,7 @@ const Layout = () => {
           '--glass-brightness': `${glassBrightness}%`,
         } as React.CSSProperties
       }
+      className='h-full'
     >
       {location.pathname == '/desktoplyrics' ? (
         <Router />
@@ -47,81 +48,62 @@ const Layout = () => {
           id='layout'
           className={cx(
             'h-full',
-            'bg-img ',
             window.env?.isElectron && !fullscreen && 'rounded-12',
             css`
               position: relative;
+              background: #000; /* 底部基准黑色 */
             `
           )}
         >
-          {/* layout */}
-          <motion.div
-            className={cx(
-              window.env?.isElectron && !fullscreen && 'rounded-12',
-              'h-full',
-              css`
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-              `,
-              showBackgroundImage &&
-                css`
-                  background-repeat: no-repeat;
-                  background-size: cover;
-                  background-position: center;
-                  transform: translate3d(0, 0, 0);
-                `,
-              theme === 'dark' ? 'bg-black/5' : 'bg-white/5'
-            )}
-            style={{
-              backgroundImage: showBackgroundImage ? `url(${activeBg})` : '',
-            }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3, ease }}
-          >
-            <div
-              className={cx(
-                window.env?.isElectron && !fullscreen && 'rounded-12',
-                window.env?.isElectron && css`
-                  position: absolute;
-                  top: 0;
-                  left: 0;
-                  width: 100%;
-                  height: 100%;
-                  background-color: rgba(0, 0, 0, 0.05); /* 设置半透明背景颜色 */
-                  // z-index: 1; /* 设置层级为较高的值，确保遮罩在内容上方 */
-                `
-              )}
-            ></div>
-          </motion.div>
-
+          {/* 1. 最底层：动态星空 */}
           <BackgroundStarrySky />
 
-          {/* mask — skip backdrop-blur when breathing effect provides its own blur */}
-          {!enableBreathingEffect && (
-            <motion.div
-              className={cx(
-                window.env?.isElectron && !fullscreen && 'rounded-12',
-                'absolute inset-0 z-0 backdrop-blur-xl',
-                theme === 'dark' ? 'bg-black/40' : 'bg-white/40'
-              )}
-            />
-          )}
+          {/* 2. 背景图片层 (如果启用) */}
+          <AnimatePresence>
+            {showBackgroundImage && (
+              <motion.div
+                key='bg-image'
+                className={cx(
+                  'absolute inset-0 z-0',
+                  css`
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center;
+                  `
+                )}
+                style={{
+                  backgroundImage: `url(${activeBg})`,
+                  opacity: 0.4, /* 降低透明度让星空透出来 */
+                }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.4 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.8 }}
+              />
+            )}
+          </AnimatePresence>
+
+          {/* 3. 呼吸灯层 */}
+          <BreathingBackground />
+
+          {/* 4. 遮罩层 (控制整体明暗) */}
+          <div 
+            className={cx(
+              'absolute inset-0 z-0 pointer-events-none',
+              theme === 'dark' ? 'bg-black/20' : 'bg-white/10'
+            )}
+          />
+
+          {/* 5. 前景 UI 层 */}
           <div
             id='layout-foreground'
             className={cx(
               'rounded-12',
-              'liquid-glass',
               'relative grid h-screen select-none overflow-hidden',
-              'text-black transition-colors duration-400 dark:text-white'
+              'text-black transition-colors duration-400 dark:text-white',
+              'z-10'
             )}
           >
-            <BreathingBackground />
-
             <MenuBar />
             <div className=''>
               <Topbar />

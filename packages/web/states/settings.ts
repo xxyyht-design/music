@@ -32,6 +32,7 @@ interface Settings {
   keyboardShortcuts: KeyboardShortcutSettings
   showTrackListName: boolean
   enableBreathingEffect: boolean
+  enableStarrySky: boolean
   glassBlur: number
   glassSaturate: number
   glassBrightness: number
@@ -61,6 +62,7 @@ const initSettings: Settings = {
   keyboardShortcuts: getKeyboardShortcutDefaultSettings(),
   showTrackListName: false,
   enableBreathingEffect: true,
+  enableStarrySky: true,
   glassBlur: 50,
   glassSaturate: 240,
   glassBrightness: 120,

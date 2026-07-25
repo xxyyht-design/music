@@ -100,6 +100,21 @@ const DiyPanel = () => {
           </div>
 
           <div className='fx-slider'>
+            <label>动态星空</label>
+            <input 
+              type='range' 
+              min='0' 
+              max='1' 
+              step='1' 
+              value={settingsSnap.enableStarrySky ? 1 : 0} 
+              onChange={(e) => {
+                settings.enableStarrySky = e.target.value === '1'
+              }}
+            />
+            <output>{settingsSnap.enableStarrySky ? 'ON' : 'OFF'}</output>
+          </div>
+
+          <div className='fx-slider'>
             <label>背景图片</label>
             <input 
               type='range' 
@@ -144,6 +159,36 @@ const DiyPanel = () => {
               }}
             />
             <output>{settingsSnap.showDesktopLyrics ? 'ON' : 'OFF'}</output>
+          </div>
+
+          <div className='fx-section-label'>智能预设</div>
+          <div className='flex flex-wrap gap-2'>
+            <button 
+              className='rounded-lg border border-white/10 bg-[#00f5d4]/10 px-3 py-2 text-[10px] text-[#00f5d4] transition-all hover:bg-[#00f5d4]/20'
+              onClick={() => {
+                settings.glassBlur = 40;
+                settings.glassSaturate = 220;
+                settings.glassBrightness = 90;
+                settings.showBackgroundImage = false;
+                settings.enableStarrySky = true;
+                settings.enableBreathingEffect = true;
+                settings.theme = 'dark';
+              }}
+            >
+              液态星空 (推荐)
+            </button>
+            <button 
+              className='rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-[10px] text-white/70 transition-all hover:bg-white/10'
+              onClick={() => {
+                settings.glassBlur = 12;
+                settings.glassSaturate = 100;
+                settings.glassBrightness = 100;
+                settings.showBackgroundImage = true;
+                settings.enableStarrySky = false;
+              }}
+            >
+              经典原生
+            </button>
           </div>
 
           <div className='fx-section-label'>其它设定</div>

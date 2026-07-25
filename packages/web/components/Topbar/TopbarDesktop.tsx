@@ -108,7 +108,7 @@ const Background = () => {
                 className={cx(
                   'relative inset-0 z-0 ',
                   'h-full w-full',
-                  show && 'backdrop-blur-2xl',
+                  show && 'liquid-glass',
                   window.env?.isElectron && !fullscreen && 'rounded-tr-12 rounded-tl-12'
                 )}
               >
@@ -158,7 +158,7 @@ const TopbarDesktop = () => {
       </div>
 
       {/* Right Part */}
-      <div className='z-10 flex gap-2'>
+      <div className='z-10 flex gap-2 app-region-no-drag'>
         <button
           className={cx('mineradio-mode-btn mr-2', uiStates.showDiyPanel && 'on')}
           onClick={() => {
