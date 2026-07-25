@@ -9,7 +9,7 @@ const service: AxiosInstance = axios.create({
   timeout: 50000,
 })
 
-service.interceptors.request.use((config: AxiosRequestConfig) => {
+service.interceptors.request.use((config: any) => {
   return config
 })
 

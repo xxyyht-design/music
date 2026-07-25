@@ -15,6 +15,7 @@ import { ease } from '../utils/const'
 import { motion } from 'framer-motion'
 import Router from '@/web/components/Router'
 import BreathingBackground from '@/web/components/BreathingBackground'
+import BackgroundStarrySky from '@/web/components/BackgroundStarrySky'
 
 // Performance note: When breathing background is enabled, it provides its own
 // blur(40px) effect on the cover image. The separate backdrop-blur-xl mask and
@@ -97,6 +98,9 @@ const Layout = () => {
               )}
             ></div>
           </motion.div>
+
+          <BackgroundStarrySky />
+
           {/* mask — skip backdrop-blur when breathing effect provides its own blur */}
           {!enableBreathingEffect && (
             <motion.div
@@ -116,7 +120,6 @@ const Layout = () => {
               'text-black transition-colors duration-400 dark:text-white'
             )}
           >
-            {/* 呼吸灯背景 — 在前景层内部最底层，覆盖含导航栏的整个区域 */}
             <BreathingBackground />
 
             <MenuBar />
