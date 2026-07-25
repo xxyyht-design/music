@@ -10,6 +10,7 @@ import TitleBar from './TitleBar'
 import uiStates from '@/web/states/uiStates'
 import ContextMenus from './ContextMenus/ContextMenus'
 import settings from '@/web/states/settings'
+import DiyPanel from './DiyPanel'
 import { ease } from '../utils/const'
 import { motion } from 'framer-motion'
 import Router from '@/web/components/Router'
@@ -24,12 +25,20 @@ const Layout = () => {
   const playerSnapshot = useSnapshot(player)
   const { fullscreen } = useSnapshot(uiStates)
   const showPlayer = !!playerSnapshot.track
-  const { showBackgroundImage, theme, enableBreathingEffect } = useSnapshot(settings)
+  const { showBackgroundImage, theme, enableBreathingEffect, glassBlur, glassSaturate, glassBrightness } = useSnapshot(settings)
   const defaultBg = 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop'
   const activeBg = player.track?.al?.picUrl || defaultBg
 
   return (
-    <div>
+    <div
+      style={
+        {
+          '--glass-blur': `${glassBlur}px`,
+          '--glass-saturate': `${glassSaturate}%`,
+          '--glass-brightness': `${glassBrightness}%`,
+        } as React.CSSProperties
+      }
+    >
       {location.pathname == '/desktoplyrics' ? (
         <Router />
       ) : (
@@ -122,6 +131,7 @@ const Layout = () => {
               window.env?.isLinux ||
               window.localStorage.getItem('showWindowsTitleBar') === 'true') && <TitleBar />}
 
+            <DiyPanel />
             <ContextMenus />
           </div>
         </div>

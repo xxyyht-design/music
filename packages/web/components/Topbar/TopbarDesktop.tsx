@@ -159,6 +159,14 @@ const TopbarDesktop = () => {
 
       {/* Right Part */}
       <div className='z-10 flex gap-2'>
+        <button
+          className={cx('mineradio-mode-btn mr-2', uiStates.showDiyPanel && 'on')}
+          onClick={() => {
+            uiStates.showDiyPanel = !uiStates.showDiyPanel
+          }}
+        >
+          DIY
+        </button>
         <Theme />
         <SettingsButton />
         <Avatar className='ml-3 h-12 w-12' />

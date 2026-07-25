@@ -8,7 +8,7 @@ const Theme = () => {
   return (
     <>
       <div
-        className='app-region-no-drag flex h-12 w-12 items-center justify-center rounded-full  bg-white/60 text-neutral-500 transition duration-400 hover:bg-white dark:bg-neutral-700 dark:text-neutral-500 dark:hover:bg-neutral-100'
+        className='app-region-no-drag mineradio-icon-btn h-12 w-12'
         onClick={() => {
           if (theme == 'dark') {
             changeTheme('light')

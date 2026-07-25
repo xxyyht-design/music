@@ -32,6 +32,9 @@ interface Settings {
   keyboardShortcuts: KeyboardShortcutSettings
   showTrackListName: boolean
   enableBreathingEffect: boolean
+  glassBlur: number
+  glassSaturate: number
+  glassBrightness: number
 }
 
 const initSettings: Settings = {
@@ -58,6 +61,9 @@ const initSettings: Settings = {
   keyboardShortcuts: getKeyboardShortcutDefaultSettings(),
   showTrackListName: false,
   enableBreathingEffect: true,
+  glassBlur: 50,
+  glassSaturate: 240,
+  glassBrightness: 120,
 }
 
 const STORAGE_KEY = 'settings'

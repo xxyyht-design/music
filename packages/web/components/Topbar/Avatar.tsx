@@ -96,12 +96,11 @@ const Avatar = ({ className }: { className?: string }) => {
         <div
           onClick={() => (uiStates.showLoginPanel = true)}
           className={cx(
-            'app-region-no-drag',
-            'rounded-full bg-day-600 p-2.5 dark:bg-night-600',
-            className || 'h-12 w-12'
+            'app-region-no-drag mineradio-icon-btn',
+            className
           )}
         >
-          <Icon name='user' className='h-7 w-7 text-neutral-500' />
+          <Icon name='user' className='h-7 w-7' />
         </div>
       )}
     </>
