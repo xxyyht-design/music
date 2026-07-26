@@ -73,8 +73,7 @@ const BackgroundStarrySky: React.FC = () => {
   if (!snap.enableStarrySky) return null;
 
   return (
-    <canvas
-      ref={canvasRef}
+    <div
       style={{
         position: 'fixed',
         top: 0,
@@ -83,10 +82,39 @@ const BackgroundStarrySky: React.FC = () => {
         height: '100vh',
         zIndex: -2,
         pointerEvents: 'none',
-        // 这里的背景稍微带点渐变深蓝色
+        overflow: 'hidden',
         background: 'linear-gradient(112deg, #020606 0%, #050607 42%, #000 100%)',
       }}
-    />
+    >
+      <canvas
+        ref={canvasRef}
+        style={{
+          width: '100%',
+          height: '100%',
+        }}
+      />
+      {/* 晚清二创：全局环境滤镜层 (The Global Veil) */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background: `
+            radial-gradient(circle at 22% 8%, rgba(255, 255, 255, var(--glass-veil, 0.08)), transparent 34%),
+            linear-gradient(180deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.16))
+          `,
+          backdropFilter: `
+            blur(var(--glass-blur, 32px)) 
+            saturate(var(--glass-saturate, 180%)) 
+            brightness(var(--glass-brightness, 100%))
+          `,
+          WebkitBackdropFilter: `
+            blur(var(--glass-blur, 32px)) 
+            saturate(var(--glass-saturate, 180%)) 
+            brightness(var(--glass-brightness, 100%))
+          `,
+        }}
+      />
+    </div>
   );
 };
 

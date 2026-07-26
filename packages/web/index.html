@@ -21,6 +21,16 @@
       <div id="placeholder" style="position: fixed; inset: 0"></div>
     </div>
     <div id="cover-hover-card" style="position: absolute"></div>
+    <!-- 晚清顶级液态玻璃 (Wanqing Liquid Glass) - SVG 滤镜注入 -->
+    <svg id="wanqing-glass-svg" xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+      <defs>
+        <filter id="liquid-glass-refraction" color-interpolation-filters="sRGB">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="0.5" result="blur" />
+          <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -10" result="mask" />
+          <feComposite in="SourceGraphic" in2="mask" operator="atop" />
+        </filter>
+      </defs>
+    </svg>
     <script type="module" src="/main.tsx"></script>
   </body>
 </html>

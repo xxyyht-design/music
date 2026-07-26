@@ -12,7 +12,7 @@ import ContextMenus from './ContextMenus/ContextMenus'
 import settings from '@/web/states/settings'
 import DiyPanel from './DiyPanel'
 import { ease } from '../utils/const'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import Router from '@/web/components/Router'
 import BreathingBackground from '@/web/components/BreathingBackground'
 import BackgroundStarrySky from '@/web/components/BackgroundStarrySky'
@@ -26,7 +26,7 @@ const Layout = () => {
   const playerSnapshot = useSnapshot(player)
   const { fullscreen } = useSnapshot(uiStates)
   const showPlayer = !!playerSnapshot.track
-  const { showBackgroundImage, theme, enableBreathingEffect, glassBlur, glassSaturate, glassBrightness } = useSnapshot(settings)
+  const { showBackgroundImage, theme, enableBreathingEffect, glassBlur, glassSaturate, glassBrightness, glassVeil } = useSnapshot(settings)
   const defaultBg = 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop'
   const activeBg = player.track?.al?.picUrl || defaultBg
 
@@ -37,6 +37,7 @@ const Layout = () => {
           '--glass-blur': `${glassBlur}px`,
           '--glass-saturate': `${glassSaturate}%`,
           '--glass-brightness': `${glassBrightness}%`,
+          '--glass-veil': `${glassVeil}`,
         } as React.CSSProperties
       }
       className='h-full'

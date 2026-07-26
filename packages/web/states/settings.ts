@@ -36,6 +36,7 @@ interface Settings {
   glassBlur: number
   glassSaturate: number
   glassBrightness: number
+  glassVeil: number
 }
 
 const initSettings: Settings = {
@@ -63,9 +64,10 @@ const initSettings: Settings = {
   showTrackListName: false,
   enableBreathingEffect: true,
   enableStarrySky: true,
-  glassBlur: 50,
-  glassSaturate: 240,
-  glassBrightness: 120,
+  glassBlur: 40,
+  glassSaturate: 220,
+  glassBrightness: 100,
+  glassVeil: 0.08,
 }
 
 const STORAGE_KEY = 'settings'

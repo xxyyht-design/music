@@ -82,6 +82,21 @@ const DiyPanel = () => {
             <output>{settingsSnap.glassBrightness}%</output>
           </div>
 
+          <div className='fx-slider'>
+            <label>高亮强度</label>
+            <input 
+              type='range' 
+              min='0' 
+              max='0.5' 
+              step='0.01' 
+              value={settingsSnap.glassVeil} 
+              onChange={(e) => {
+                settings.glassVeil = parseFloat(e.target.value)
+              }}
+            />
+            <output>{Math.round(settingsSnap.glassVeil * 100)}%</output>
+          </div>
+
           <div className='fx-section-label'>核心视觉</div>
           
           <div className='fx-slider'>
@@ -169,6 +184,7 @@ const DiyPanel = () => {
                 settings.glassBlur = 40;
                 settings.glassSaturate = 220;
                 settings.glassBrightness = 90;
+                settings.glassVeil = 0.08;
                 settings.showBackgroundImage = false;
                 settings.enableStarrySky = true;
                 settings.enableBreathingEffect = true;

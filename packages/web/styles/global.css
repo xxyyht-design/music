@@ -98,34 +98,74 @@
   /* 晚清顶级液态玻璃 (Wanqing Liquid Glass) - 二创核心注入             */
   /* 极致透明材质，专为搜索框、播放器等“框框”打造                      */
   /* ---------------------------------------------------------------- */
+  :root {
+    --glass-blur: 32px;
+    --glass-saturate: 180%;
+    --glass-brightness: 100%;
+    --glass-veil: 0.08;
+  }
+
   .liquid-glass {
-    background: rgba(255, 255, 255, 0.01) !important;
-    backdrop-filter: blur(var(--glass-blur, 40px)) saturate(var(--glass-saturate, 200%)) brightness(var(--glass-brightness, 110%)) !important;
-    -webkit-backdrop-filter: blur(var(--glass-blur, 40px)) saturate(var(--glass-saturate, 200%)) brightness(var(--glass-brightness, 110%)) !important;
+    position: relative;
+    background: rgba(255, 255, 255, 0.02) !important;
+    backdrop-filter: blur(var(--glass-blur, 32px)) saturate(var(--glass-saturate, 180%)) brightness(var(--glass-brightness, 100%)) !important;
+    -webkit-backdrop-filter: blur(var(--glass-blur, 32px)) saturate(var(--glass-saturate, 180%)) brightness(var(--glass-brightness, 100%)) !important;
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
     box-shadow: 
-      0 8px 32px 0 rgba(0, 0, 0, 0.15),
-      inset 0 1px 1px rgba(255, 255, 255, 0.05) !important;
+      0 20px 50px rgba(0, 0, 0, 0.3), 
+      inset 0 1px 0 rgba(255, 255, 255, 0.15),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.1) !important;
+    overflow: hidden;
+  }
+
+  .liquid-glass::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 22% 8%, rgba(255, 255, 255, var(--glass-veil, 0.08)), transparent 40%);
+    pointer-events: none;
+    z-index: 0;
   }
 
   .dark .liquid-glass {
-    background: rgba(0, 0, 0, 0.15) !important;
-    backdrop-filter: blur(var(--glass-blur, 40px)) saturate(var(--glass-saturate, 220%)) brightness(var(--glass-brightness, 90%)) !important;
-    -webkit-backdrop-filter: blur(var(--glass-blur, 40px)) saturate(var(--glass-saturate, 220%)) brightness(var(--glass-brightness, 90%)) !important;
+    background: rgba(0, 0, 0, 0.2) !important;
+    backdrop-filter: blur(var(--glass-blur, 32px)) saturate(var(--glass-saturate, 220%)) brightness(var(--glass-brightness, 90%)) !important;
+    -webkit-backdrop-filter: blur(var(--glass-blur, 32px)) saturate(var(--glass-saturate, 220%)) brightness(var(--glass-brightness, 90%)) !important;
     border: 1px solid rgba(255, 255, 255, 0.05) !important;
     box-shadow: 
-      0 8px 32px 0 rgba(0, 0, 0, 0.4),
-      inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+      0 20px 50px rgba(0, 0, 0, 0.45),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.2) !important;
   }
 
   /* 强行穿透：让所有深色/灰色背景让位给毛玻璃 */
-  #layout, .bg-white, .bg-gray-50, .bg-gray-100, .bg-gray-900, .bg-black, .bg-neutral-900, .bg-neutral-800, .bg-zinc-900 {
+  #layout, .bg-white, .bg-gray-50, .bg-gray-100, .bg-gray-900, .bg-black, .bg-neutral-900, .bg-neutral-800, .bg-zinc-900, .dark .bg-black, .dark .bg-neutral-900 {
     background-color: transparent !important;
+    background-image: none !important;
   }
 
-  /* 核心组件透明化 */
+  /* 核心组件透明化并应用液态材质 */
   nav, aside, footer, header, #player, .menubar, .topbar, #main, .main-container {
     background: transparent !important;
+  }
+
+  /* 针对具体的组件类名强制应用玻璃效果 */
+  .menubar {
+    @apply liquid-glass !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-top: none !important;
+    border-bottom: none !important;
+    border-left: none !important;
+    border-radius: 0 !important;
+  }
+
+  #player {
+    @apply liquid-glass !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: none !important;
+    border-radius: 0 !important;
   }
 
   /* 这种效果更适合作为背景容器 */
